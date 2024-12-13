@@ -29,9 +29,8 @@ jobs:
       - name: Run Python script
         run: |
           python load_latest_data.py
-          
 
-     - name: Commit and push changes
+      - name: Commit and push changes
         run: |
           git config user.name "sravan12521"
           git config user.email "sveerannagari@unomaha.edu"
