@@ -1,0 +1,40 @@
+name: Deploy and Process CSVs
+
+on:
+  schedule:
+    - cron: "0 0 1 * *" # Runs at midnight on the first day of every month
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.12.3" # Replace with your required Python version
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run Python script
+        run: |
+          python load_latest_data.py
+          
+
+     - name: Commit and push changes
+        run: |
+          git config user.name "sravan12521"
+          git config user.email "sveerannagari@unomaha.edu"
+          git add .
+          git commit -m "Add folder and load CSVs"
+          git push origin main
