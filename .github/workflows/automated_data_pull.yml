@@ -29,12 +29,13 @@ jobs:
       - name: Run Python script
         run: |
           python load_latest_data.py
-          
 
       - name: Commit and push changes
-         run: |
-           git config user.name "sravan12521"
-           git config user.email "sveerannagari@unomaha.edu"
-           git add .
-           git commit -m "Add folder and load CSVs"
-           git push origin main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config user.name "sravan12521"
+          git config user.email "sveerannagari@unomaha.edu"
+          git add .
+          git commit -m "Add folder and load CSVs"
+          git push origin main
