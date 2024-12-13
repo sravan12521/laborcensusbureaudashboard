@@ -36,6 +36,7 @@ jobs:
         run: |
           git config user.name "sravan12521"
           git config user.email "sveerannagari@unomaha.edu"
+          git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}
           git add .
-          git commit -m "Add folder and load CSVs"
+          git commit -m "Add folder and load CSVs" || echo "No changes to commit"
           git push origin main
