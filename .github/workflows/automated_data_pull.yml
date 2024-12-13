@@ -31,10 +31,10 @@ jobs:
           python load_latest_data.py
           
 
-     - name: Commit and push changes
-        run: |
-          git config user.name "sravan12521"
-          git config user.email "sveerannagari@unomaha.edu"
-          git add .
-          git commit -m "Add folder and load CSVs"
-          git push origin main
+      - name: Commit and push changes
+         run: |
+           git config user.name "sravan12521"
+           git config user.email "sveerannagari@unomaha.edu"
+           git add .
+           git commit -m "Add folder and load CSVs"
+           git push origin main
