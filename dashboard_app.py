@@ -133,7 +133,7 @@ st.title("U.S Bureau Of Labor Statistics - Dashboard")
 
 # Sidebar To Load Incremental Data & Filter The Charts Scope
 
-st.sidebar.header('Filter By Date Range')
+st.sidebar.header('Dashboard Date Range')
 
 start_date = st.sidebar.date_input("Start Date", 
             value=datetime.now() - relativedelta(months=15), 
@@ -147,11 +147,11 @@ end_date = st.sidebar.date_input("End Date",
 
 # Incremental Load Button
 
-if st.sidebar.button('Load Latest Data'):    
+# if st.sidebar.button('Load Latest Data'):    
 
-    api_data_pull.IncrementalData()
+#     api_data_pull.IncrementalData()
 
-    st.rerun()
+#     st.rerun()
 
 
 # Reading the tables
